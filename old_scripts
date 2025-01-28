@@ -1,0 +1,80 @@
+
+
+"""for vehicle in world.get_actors(vehicle_ids):
+
+                pos_BB = np.array([EOT.get(vehicle.id)[0][:,0] - ego_radar.get_location().x,
+                                   EOT.get(vehicle.id)[0][:,1] - ego_radar.get_location().y,
+                                   EOT.get(vehicle.id)[0][:,2] - ego_radar.get_location().z])
+                pos_bb_trans = ego_radar_transform_matrix.dot(pos_BB)
+                [EOT.get(vehicle.id)[0][:,0], EOT.get(vehicle.id)[0][:,1], EOT.get(vehicle.id)[0][:,2]] = [pos_bb_trans[0], pos_bb_trans[1], pos_bb_trans[2]]
+                
+                
+                pos = np.array([vehicle.get_location().x - ego_radar.get_location().x,
+                                vehicle.get_location().y - ego_radar.get_location().y,
+                                vehicle.get_location().z - ego_radar.get_location().z])
+                
+                pos_trans = ego_radar_transform_matrix.dot(pos)
+                phi = np.rad2deg(np.arctan2(pos_trans[1], pos_trans[0]))
+                r = np.linalg.norm([pos_trans[0], pos_trans[1]])
+                if r<args.range and -args.horizontal_fov/2 < phi < args.horizontal_fov/2:
+                    
+                    ray = world.cast_ray(radar_location, vehicle.get_location())
+                    if actor_is_visible(ray, vehicle):
+                        ground_ids.append(vehicle.id,)
+
+                        #print(pos_trans) # Vizualise cars in FOV
+                        #print(vehicle.type_id)
+                        #print("########################")
+            
+            radar_visible_ids = np.unique(radar_data_handler.point_to_id[radar_data_handler.point_to_id > -1]) # All radar hits with an ID > -1
+            for id in radar_visible_ids:
+                if (world.get_actor(int(id)).attributes != {}) and (id not in ground_ids):
+                    ground_ids.append(int(id),)
+                    pos = np.array([EOT.get(id)[0][:,0] - ego_radar.get_location().x,
+                                    EOT.get(id)[0][:,1] - ego_radar.get_location().y,
+                                    EOT.get(id)[0][:,2] - ego_radar.get_location().z])
+                    pos_trans = ego_radar_transform_matrix.dot(pos)
+                    [EOT.get(id)[0][:,0], EOT.get(id)[0][:,1], EOT.get(id)[0][:,2]] = [pos_trans[0], pos_trans[1], pos_trans[2]]"""
+
+"""
+def actor_is_visible(ray, vehicle):
+    omit_list = ['Fences', 'Other', 'Poles', 'RoadLines', 'Roads', 'Sidewalks', 'TrafficSigns', 'Vegetation', 
+                 'Sky', 'Ground', 'RailTrack', 'GuardRail', 'TrafficLight', 'Water', 'Terrain', 'Any', 'NONE', 'Bicycle']
+    is_visible = True
+    for obj in ray:
+        if str(obj.label).split('.')[-1] in omit_list:
+            continue
+        is_visible = actor_near_location(vehicle, obj.location)
+        break
+    return is_visible
+
+    if ray[-1].label != carla.libcarla.CityObjectLabel.Car:
+        ray.pop(-1)
+        if ray ==[]:
+            return False
+    else:
+        ray.pop(-1)
+        if ray ==[]:
+            return False
+        last_label_str = str(ray[-1].label).split('.')[-1]
+        if last_label_str not in ls:
+            return True
+        else:
+            return False
+    """        
+        
+    """
+    ray = world.cast_ray(source.location, target.location)
+    if ray and ray.actor and ray.actor.id == target.id:
+        return True
+    return False
+    """
+
+    """ Visualize all spawn-points in map in main
+    for i, spawn_point in enumerate(spawn_points):
+        # Draw in the spectator window the spawn point index
+        world.debug.draw_string(spawn_point.location, str(i), life_time=100)
+        # We can also draw an arrow to see the orientation of the spawn point
+        # (i.e. which way the vehicle will be facing when spawned)
+        world.debug.draw_arrow(spawn_point.location, spawn_point.location + spawn_point.get_forward_vector(), life_time=100)
+    """

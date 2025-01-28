@@ -1,0 +1,9 @@
+carla==0.9.15
+numpy
+matplotlib
+open3d
+scipy
+cantools
+python-can
+fastcluster
+mypy
